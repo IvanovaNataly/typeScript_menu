@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TypeScript</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Apollo Soubvaki</h1>
+        <div class="card-panel">
+            <main class="row">
+                <section class="col s6">
+                    <h4>Add new product</h4>
+                    <form action="">
+                        <label for="menu_name">Menu Name</label>
+                        <input placeholder="Enter Menu Name" id="menu_name" type="text" class="validate">
+
+                        <label for="dish_price">Dish Price</label>
+                        <input placeholder="0.00" id="dish_price" type="text" class="validate">
+
+
+                        <label for="dish_type">Materialize Select</label>
+                        <select id="dish_type">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+
+                        <div class="button-container">
+                            <a class="waves-effect waves-light btn">Add Product</a>
+                        </div>
+
+
+                    </form>
+                </section>
+
+                <section class="col s6">
+                    <h4>Current inventory</h4>
+                    <ul class="collection">
+                        <li class="collection-item"><span class="badge blue">$1</span><span class="new badge red"></span>Alan></li>
+                        <li class="collection-item"><span class="badge blue">$1</span><span class="new badge red"></span>Alan></li>
+                        <li class="collection-item"><span class="badge blue">$1</span>Alan></li>
+                    </ul>
+
+                <div class="button-container">
+                    <a class="waves-effect waves-light btn">Clear Menu</a>
+                </div>
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>-->
+    <script type="text/javascript" src="./bundle.js"></script>
+</body>
+</html>
