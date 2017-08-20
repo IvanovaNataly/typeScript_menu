@@ -65,20 +65,128 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var Person = (function () {
-    function Person(name, age) {
-        this.name = name;
-        this.age = age;
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Name_1 = __webpack_require__(1);
+var Price_1 = __webpack_require__(2);
+var Type_1 = __webpack_require__(3);
+var name = new Name_1.default();
+var price = new Price_1.default();
+var type = new Type_1.default();
+var Product = (function () {
+    function Product(name, price, type) {
     }
-    Person.prototype.greet = function () {
-        console.log("Hi, I am " + this.name);
+    Product.prototype.getPrice = function () {
+        return this.price;
     };
-    return Person;
+    Product.prototype.setPrice = function (newPrice) {
+        this.price = newPrice;
+        return this;
+    };
+    Product.prototype.saveProduct = function () {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                return resolve(true);
+            }, 1500);
+        });
+    };
+    return Product;
 }());
-var person = new Person("Jack", 29);
-person.greet();
+exports.default = Product;
+var $select = document.querySelector("#dish_type");
+var $addProduct = document.querySelector("#addProduct");
+$addProduct.addEventListener("click", getNewProduct.bind(this));
+function getNewProduct() {
+    name.setName(document.querySelector("#menu_name").value);
+    price.setPrice(document.querySelector("#dish_price").value);
+    type.setType($select.options[$select.selectedIndex].innerText);
+    var pr = new Product(name.getName(), price.getPrice(), type.getType());
+    console.log(pr);
+}
+// // class Person {
+// //     name: string;
+// //     age: number;
+// //     constructor(name: string, age: number) {
+// //         this.name = name;
+// //         this.age = age;
+// //     }
+// //
+// //     greet() {
+// //         console.log("Hi, I am " + this.name)
+// //     }
+// // }
+// //
+// // var person = new Person("Jack", 29);
+// //
+// // person.greet();
+//
+// 
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Name = (function () {
+    function Name() {
+    }
+    Name.prototype.getName = function () {
+        return this._name;
+    };
+    Name.prototype.setName = function (newName) {
+        this._name = newName;
+    };
+    return Name;
+}());
+exports.default = Name;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Price = (function () {
+    function Price() {
+    }
+    Price.prototype.getPrice = function () {
+        return this._price;
+    };
+    Price.prototype.setPrice = function (newPrice) {
+        (newPrice > 0) ? this._price = newPrice : this._price = 1;
+    };
+    return Price;
+}());
+exports.default = Price;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Type = (function () {
+    function Type() {
+    }
+    Type.prototype.getType = function () {
+        return this._type;
+    };
+    Type.prototype.setType = function (newType) {
+        this._type = newType;
+    };
+    return Type;
+}());
+exports.default = Type;
 
 
 /***/ })
