@@ -230,6 +230,10 @@ class ProductsService {
 	getFromLocalStorage() {
 		return JSON.parse(localStorage.getItem(data));
 	}
+
+	clearStorage() {
+		localStorage.clear();
+	}
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = ProductsService;
 

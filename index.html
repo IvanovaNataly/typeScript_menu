@@ -18,7 +18,7 @@
             <main class="row">
                 <section class="col s6">
                     <h4>Add new product</h4>
-                    <form action="">
+                    <form action="" id="addProductForm">
                         <label for="menu_name">Menu Name</label>
                         <input placeholder="Enter Menu Name" id="menu_name" type="text" class="validate">
 
@@ -33,13 +33,16 @@
                             <option value="2">Main</option>
                             <option value="3">Desert</option>
                         </select>
-
-                        <div class="button-container">
-                            <a class="waves-effect waves-light btn" id="addProduct">Add Product</a>
-                        </div>
-
-
                     </form>
+                    <div class="button-container">
+                        <!--<a  ></a>-->
+                        <button type="submit" form="addProductForm" id="addProduct" value="Submit" class="waves-effect waves-light btn">
+                            Add Product
+                        </button>
+                    </div>
+
+
+
                 </section>
 
                 <section class="col s6">

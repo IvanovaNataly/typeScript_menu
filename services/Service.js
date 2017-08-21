@@ -8,5 +8,9 @@ export default class ProductsService {
 	getFromLocalStorage() {
 		return JSON.parse(localStorage.getItem(data));
 	}
+
+	clearStorage() {
+		localStorage.clear();
+	}
 }
 
