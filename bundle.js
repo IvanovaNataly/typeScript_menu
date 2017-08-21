@@ -65,31 +65,49 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Name__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Name___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Name__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Price__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Price___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Price__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Type__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Product__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Product___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Product__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_Service__ = __webpack_require__(5);
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var Name_1 = __webpack_require__(1);
-var Price_1 = __webpack_require__(2);
-var Type_1 = __webpack_require__(3);
-var Product_1 = __webpack_require__(4);
-var nameIns = new Name_1.default();
-var priceIns = new Price_1.default();
-var typeIns = new Type_1.default();
-var $select = document.querySelector("#dish_type");
-var $addProduct = document.querySelector("#addProduct");
+
+
+
+
+
+let nameIns = new __WEBPACK_IMPORTED_MODULE_0__components_Name___default.a();
+let priceIns = new __WEBPACK_IMPORTED_MODULE_1__components_Price___default.a();
+let typeIns = new __WEBPACK_IMPORTED_MODULE_2__components_Type___default.a();
+let service  =  new __WEBPACK_IMPORTED_MODULE_4__services_Service__["a" /* default */]();
+
+
+
+let $select = document.querySelector("#dish_type");
+let $addProduct = document.querySelector("#addProduct");
 $addProduct.addEventListener("click", getNewProduct.bind(this));
+
 function getNewProduct() {
-    nameIns.setName(document.querySelector("#menu_name").value);
-    priceIns.setPrice(document.querySelector("#dish_price").value);
-    typeIns.setType($select.options[$select.selectedIndex].innerText);
-    var pr = new Product_1.default(nameIns.getName(), priceIns.getPrice(), typeIns.getType());
-    // let products: [];
-    // poducts.push(pr);
-    // console.log("Array ", products);
-    // localStorage.setItem("products", products);
+	nameIns.setName(document.querySelector("#menu_name").value);
+	priceIns.setPrice(document.querySelector("#dish_price").value);
+	typeIns.setType($select.options[$select.selectedIndex].innerText);
+	let pr = new __WEBPACK_IMPORTED_MODULE_3__components_Product___default.a(nameIns.getName(), priceIns.getPrice(), typeIns.getType());
+
+	let products = service.getFromLocalStorage() || [];
+	products.push(pr);
+	console.log("Array ", products);
+	service.sendToLocalStorage(products);
+	console.log(service.getFromLocalStorage());
 }
+
 
 
 /***/ }),
@@ -195,6 +213,27 @@ exports.default = Product;
 // // person.greet();
 //
 // 
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+let data = "products";
+
+class ProductsService {
+	sendToLocalStorage(products) {
+		return localStorage.setItem(data, JSON.stringify(products));
+	}
+
+	getFromLocalStorage() {
+		return JSON.parse(localStorage.getItem(data));
+	}
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = ProductsService;
+
+
 
 
 /***/ })
