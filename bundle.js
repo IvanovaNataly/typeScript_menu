@@ -73,57 +73,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Name_1 = __webpack_require__(1);
 var Price_1 = __webpack_require__(2);
 var Type_1 = __webpack_require__(3);
-var name = new Name_1.default();
-var price = new Price_1.default();
-var type = new Type_1.default();
-var Product = (function () {
-    function Product(name, price, type) {
-    }
-    Product.prototype.getPrice = function () {
-        return this.price;
-    };
-    Product.prototype.setPrice = function (newPrice) {
-        this.price = newPrice;
-        return this;
-    };
-    Product.prototype.saveProduct = function () {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                return resolve(true);
-            }, 1500);
-        });
-    };
-    return Product;
-}());
-exports.default = Product;
+var Product_1 = __webpack_require__(4);
+var nameIns = new Name_1.default();
+var priceIns = new Price_1.default();
+var typeIns = new Type_1.default();
 var $select = document.querySelector("#dish_type");
 var $addProduct = document.querySelector("#addProduct");
 $addProduct.addEventListener("click", getNewProduct.bind(this));
 function getNewProduct() {
-    name.setName(document.querySelector("#menu_name").value);
-    price.setPrice(document.querySelector("#dish_price").value);
-    type.setType($select.options[$select.selectedIndex].innerText);
-    var pr = new Product(name.getName(), price.getPrice(), type.getType());
-    console.log(pr);
+    nameIns.setName(document.querySelector("#menu_name").value);
+    priceIns.setPrice(document.querySelector("#dish_price").value);
+    typeIns.setType($select.options[$select.selectedIndex].innerText);
+    var pr = new Product_1.default(nameIns.getName(), priceIns.getPrice(), typeIns.getType());
+    // let products: [];
+    // poducts.push(pr);
+    // console.log("Array ", products);
+    // localStorage.setItem("products", products);
 }
-// // class Person {
-// //     name: string;
-// //     age: number;
-// //     constructor(name: string, age: number) {
-// //         this.name = name;
-// //         this.age = age;
-// //     }
-// //
-// //     greet() {
-// //         console.log("Hi, I am " + this.name)
-// //     }
-// // }
-// //
-// // var person = new Person("Jack", 29);
-// //
-// // person.greet();
-//
-// 
 
 
 /***/ }),
@@ -187,6 +153,48 @@ var Type = (function () {
     return Type;
 }());
 exports.default = Type;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Product = (function () {
+    function Product(name, price, type) {
+        this._name = name;
+        this._price = price;
+        this._type = type;
+    }
+    Product.prototype.getName = function () {
+        return this._name;
+    };
+    Product.prototype.getPrice = function () {
+        return this._price;
+    };
+    return Product;
+}());
+exports.default = Product;
+// // class Person {
+// //     name: string;
+// //     age: number;
+// //     constructor(name: string, age: number) {
+// //         this.name = name;
+// //         this.age = age;
+// //     }
+// //
+// //     greet() {
+// //         console.log("Hi, I am " + this.name)
+// //     }
+// // }
+// //
+// // var person = new Person("Jack", 29);
+// //
+// // person.greet();
+//
+// 
 
 
 /***/ })
